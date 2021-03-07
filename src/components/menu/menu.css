@@ -1,0 +1,11 @@
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    padding: 3.5px;
+    align-content: flex-start;
+    align-items: flex-start;
+    border-right: 1px solid rgb(155, 155, 155);
+}

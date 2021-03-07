@@ -1,0 +1,12 @@
+.load-users-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url(/src/images/users.svg);
+    border: 1px solid rgb(155, 155, 155)
+}
+
+.load-users-button:hover {
+    background-color: rgb(50, 125, 187);
+    background-image: url(/src/images/users-hover.svg);
+}
