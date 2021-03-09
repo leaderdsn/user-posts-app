@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/app';
-import reportWebVitals from './reportWebVitals';
-import { RootStateProvider } from './store/RootStateContext';
+import {App} from './components/app';
+import { RootStateProvider } from './stores/RootStateContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,5 +12,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-reportWebVitals();
