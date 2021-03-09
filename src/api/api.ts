@@ -1,4 +1,5 @@
-export const getUsers = ():Promise<string[]> => {
-    return fetch("https://gorest.co.in/public-api/users")
-    .then(res => res.json())
-}
+import axios from 'axios';
+
+export const api = axios.create({
+    baseURL: 'https://gorest.co.in/public-api/'
+})

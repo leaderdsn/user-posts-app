@@ -45,7 +45,7 @@
 
 .ldio-yw76ita4v87 div {
     position: absolute;
-    width: 14px
+    width: 14px;
 }
 
 .ldio-yw76ita4v87 div:nth-child(1) {
@@ -70,6 +70,7 @@
 }
 
 .loadingio-spinner-pulse-eb5jci4p1p {
+    position: relative;
     width: 31px;
     height: 31px;
     display: inline-block;

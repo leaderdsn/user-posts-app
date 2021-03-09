@@ -4,3 +4,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.loading-container {
+    text-align: center;
+}
+
+.list-users {
+    width: 100%;
+    max-width: 1200px;
+}

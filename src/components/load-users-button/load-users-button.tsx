@@ -1,21 +1,18 @@
-import { useRootStore } from '../../store/RootStateContext';
-import { Button } from 'react-bootstrap';
+import React from 'react';
+import {observer} from 'mobx-react-lite';
+import {useRootStore} from '../../stores/RootStateContext';
 import './load-users-button.css';
 
-export const LoadUsersButton:React.FC = () => {
-    
-    const { usersStore } = useRootStore();
+export const LoadUsersButton: React.FC = observer(() => {
+    const {usersStore} = useRootStore();
+    const onClickBtn = () => {
+        usersStore.loadUsers()
+    }
 
     return (
-        <>
-            <div
-                // variant='link'
-                className='load-users-button'
-                onClick={() => {
-                    usersStore.loadUsers() 
-                }}
-            ></div>
-            { console.log(usersStore.users)}
-        </>
+        <div
+            className='load-users-button'
+            onClick={onClickBtn}
+        />
     )
-}
+})

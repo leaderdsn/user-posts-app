@@ -1,5 +1,1 @@
-import { ListUsers } from './list-users';
-
-export {
-    ListUsers
-}
+export { ListUsers } from './list-users';

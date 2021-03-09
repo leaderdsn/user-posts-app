@@ -1,3 +1,1 @@
-import ListPosts from './list-posts';
-
-export default ListPosts;
+export { ListPosts } from './list-posts';
