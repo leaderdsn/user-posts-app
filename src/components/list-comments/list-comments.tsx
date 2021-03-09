@@ -1,36 +1,37 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { observer } from 'mobx-react-lite';
-import { Link } from 'react-router-dom';
+import {observer} from 'mobx-react-lite';
+import {Link} from 'react-router-dom';
 import { useRootStore } from '../../stores/RootStateContext';
-import { Button, Table } from 'react-bootstrap';
-import Spinner from '../../components/spinner'
-import './list-posts.css';
+import {Button, Table} from 'react-bootstrap';
+import Spinner from '../spinner'
+import './list-comments.css';
+
 interface RouteParams {
     id: string
 }
 
-export const ListPosts: React.FC = observer(() => {
+export const ListComments: React.FC = observer(() => {
     const {id} = useParams<RouteParams>();
-    const{postsStore} = useRootStore();
-    const isLoading = postsStore.isLoading;
+    const{commentsStore} = useRootStore();
+    const isLoading = commentsStore.isLoading;
 
-    useEffect(() => {
-        postsStore.loadPosts();
-
-    },[postsStore])
+    useEffect(()=>{
+        commentsStore.loadComments();
+    },[commentsStore])
 
     return(
         <>
-            <h3 className="user-id">User id:{id}</h3>
+            <h3 className="user-id">Post id:{id}</h3>
             <div className='btn-container'>
-                <Link className='btn btn-outline-primary my-2' to={`/`}>Back</Link>
+                <Link className='btn btn-outline-primary my-2' to={`/posts/${id}/`}>Back</Link>
             </div>
             <Table className='list-posts' bordered hover size="sm">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Post Title</th>
+                        <th>User name</th>
+                        <th>Comment</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
                         <th>Action</th>
@@ -39,17 +40,18 @@ export const ListPosts: React.FC = observer(() => {
                     <tbody>
                     {
                         isLoading ? (
-                            <td className='loading-container' colSpan={5}>
+                            <td className='loading-container' colSpan={6}>
                                 <Spinner />
                             </td>
                         ) : (
-                            postsStore.posts.map(post => {
-                                const {user_id, title, created_at, updated_at} = post
-                                if(Number(id) === user_id){
+                            commentsStore.comments.map(comment => {
+                                const {post_id, name, body, created_at, updated_at} = comment
+                                if(Number(id) === post_id){
                                     return (
-                                        <tr key={user_id}>
-                                            <td>{user_id}</td>
-                                            <td>{title}</td>
+                                        <tr key={post_id}>
+                                            <td>{post_id}</td>
+                                            <td>{name}</td>
+                                            <td>{body}</td>
                                             <td>{created_at}</td>
                                             <td>{updated_at}</td>
                                             <td>
@@ -64,10 +66,12 @@ export const ListPosts: React.FC = observer(() => {
                     </tbody>
                 </Table>
                 <div className='pangination-container'>
-                    <Button className='mx-2' variant={isLoading ? 'secondary': 'success'} disabled={isLoading}>
+                    <Button className='mx-2 ' variant={isLoading ? 'secondary': 'success'} disabled={isLoading}>
                         {isLoading ? 'Loading…' : 'Load More'}
                     </Button>
+                    
                 </div>
+            
         </>
     )
 })

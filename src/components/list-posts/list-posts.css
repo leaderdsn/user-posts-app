@@ -1,0 +1,27 @@
+.pangination-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.list-posts {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.user-id {
+    width: 100%;
+    display: flex;
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
