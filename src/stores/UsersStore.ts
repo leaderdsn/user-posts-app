@@ -10,17 +10,19 @@ export interface IUser {
 }
 
 export interface IMeta {
-    pagination: IUserPagination[]
+    pagination: IPagination
 }
 
-export interface IUserPagination {
-    limit: number
-    total: number
+export interface IPagination {
+    limit?: number
+    total?: number
+    pages?: number
+    page?: number
 }
 
 export class UsersStore {
     @observable users: IUser[] = []
-    @observable pagination: any = []
+    @observable pagination?: IPagination
     @observable isLoading: boolean = false
 
     constructor() {
@@ -28,17 +30,14 @@ export class UsersStore {
     }
 
     @action
-    async loadUsers (page: number = 1) {
+    async loadUsers(page: number = 1) {
         if (this.isLoading) return
 
         this.isLoading = true
 
         try {
-            const {data: resData}: AxiosResponse<{ data: IUser[], meta:any }> = await api.get(`/users?=${page}`)
+            const {data: resData}: AxiosResponse<{ data: IUser[], meta: IMeta }> = await api.get(`/users?page=${page}`)
             this.users = resData.data
-            console.log('resdata',resData.data)
-            console.log('resdataM',resData.meta)
-            console.log('resdataP',resData.meta.pagination)
             this.pagination = resData.meta.pagination
         } catch (e) {
             console.log(e)

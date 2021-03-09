@@ -7,10 +7,10 @@ import { observer } from 'mobx-react-lite'
 
 
 export const Home: React.FC = observer(() => {
-    const {usersStore: {users, isLoading, pagination, loadUsers}} = useRootStore();
-    const paginate = (pageNumber: number) => loadUsers(pageNumber)
+    const {usersStore} = useRootStore();
+    const {users, isLoading, pagination} = usersStore;
+    const paginate = (pageNumber: number) => usersStore.loadUsers(pageNumber)
 
-    // const {total, limit} = pagination
     return (
         <>
             <Menu />
@@ -21,13 +21,15 @@ export const Home: React.FC = observer(() => {
             {
                 !isLoading ? (
                     <Pagination
-                        perPage={pagination.limit}
-                        total={pagination.total}
+                        pages={pagination?.pages}
+                        page={pagination?.page}
+                        total={pagination?.total}
+                        limit={pagination?.limit}
                         paginate={paginate}
                     />
-                ) : ''
+                ) : null
             }
-            
+
         </>
     )
 })
