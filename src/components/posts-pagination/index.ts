@@ -1,0 +1,1 @@
+export { PostsPagination } from './posts-pagination';
