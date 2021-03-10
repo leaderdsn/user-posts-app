@@ -5,12 +5,25 @@ import {api} from '../api/api';
 export interface IPost {
     user_id: number
     title: string
+    body: string
     created_at: Date
     updated_at: Date
 }
 
+export interface IMeta {
+    pagination: IPagination
+}
+
+export interface IPagination {
+    limit?: number
+    total?: number
+    pages?: number
+    page?: number
+}
+
 export class PostsStore {
     @observable posts: IPost[] = []
+    @observable pagination?: IPagination
     @observable isLoading: boolean = false
 
     constructor() {
@@ -18,14 +31,15 @@ export class PostsStore {
     }
 
     @action
-    async loadPosts () {
+    async loadPosts (page: number = 1) {
         if (this.isLoading) return
 
         this.isLoading = true
 
         try {
-            const {data: resData}: AxiosResponse<{ data: IPost[] }> = await api.get('/posts')
+            const {data: resData}: AxiosResponse<{ data: IPost[], meta: IMeta }> = await api.get(`/posts?page=${page}`)
             this.posts = resData.data
+            this.pagination = resData.meta.pagination
         } catch (e) {
             console.log(e)
         }
