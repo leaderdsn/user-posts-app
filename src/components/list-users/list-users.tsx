@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Table, Form } from 'react-bootstrap';
 import Spinner from '../spinner';
 import './list-users.css';
