@@ -29,3 +29,12 @@
     text-align: center;
     width: 40px;
 }
+
+.choice-col {
+    text-align: center;
+    width: 40px;
+}
+
+.disabled-link {
+    pointer-events: none;
+}
