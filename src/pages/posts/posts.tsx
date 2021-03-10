@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListPosts } from '../../components/list-posts';
-import {useRootStore} from '../../stores/RootStateContext';
-import {PostsPagination} from '../../components/posts-pagination';
+import { useRootStore } from '../../stores/RootStateContext';
+import { Pagination } from '../../components/pagination';
 import { observer } from 'mobx-react-lite';
 
 export const Posts: React.FC = observer(() => {
@@ -12,11 +12,12 @@ export const Posts: React.FC = observer(() => {
         <>
             <ListPosts
                 posts={posts}
+                page={pagination?.page}
                 isLoading={isLoading}
             />
             {
                 !isLoading ? (
-                    <PostsPagination
+                    <Pagination
                         pages={pagination?.pages}
                         page={pagination?.page}
                         total={pagination?.total}
