@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Table} from 'react-bootstrap';
-import Spinner from '../spinner'
+import { Table } from 'react-bootstrap';
+import Spinner from '../spinner';
 import './list-users.css';
-import {Link} from 'react-router-dom';
-import {IUser} from '../../stores/UsersStore';
+import { Link } from 'react-router-dom';
+import { IUser} from '../../stores/UsersStore';
 
 interface ListUsersProps {
     users: IUser[]
@@ -16,13 +16,13 @@ export const ListUsers: React.FC<ListUsersProps> = ({users, isLoading}) => {
         <>
             <Table className='list-users' bordered hover size='sm'>
                 <thead>
-                <tr>
-                    <th>#</th>
-                    <th>User name</th>
-                    <th>Gender</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>User name</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {
@@ -35,7 +35,7 @@ export const ListUsers: React.FC<ListUsersProps> = ({users, isLoading}) => {
                             const {id, name, gender, status} = user
 
                             return (
-                                <tr key={id}>
+                                <tr key={id} className="item">
                                     <td>{id}</td>
                                     <td>{name}</td>
                                     <td>{gender}</td>
@@ -50,11 +50,6 @@ export const ListUsers: React.FC<ListUsersProps> = ({users, isLoading}) => {
                 }
                 </tbody>
             </Table>
-            <div className='pangination-container'>
-                {/* <Button variant={isLoading ? 'secondary' : 'success'} disabled={isLoading}>
-                    {isLoading ? 'Loading…' : 'Load More'}
-                </Button> */}
-            </div>
         </>
     )
 }
