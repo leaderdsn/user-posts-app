@@ -4,30 +4,39 @@ import { Link } from 'react-router-dom';
 import { useRootStore } from '../../stores/RootStateContext';
 import { Table } from 'react-bootstrap';
 import Spinner from '../../components/spinner';
+import { IPost } from '../../stores/PostsStore';
 import './list-posts.css';
-import { IPost } from '../../stores/PostStore';
 interface RouteParams {
     id: string
 }
 interface ListPostsProps {
     posts: IPost[]
     isLoading?: boolean
+    page?: number
 }
 
-export const ListPosts: React.FC<ListPostsProps> = ({posts, isLoading}) => {
-    const {id} = useParams<RouteParams>();
+export const ListPosts: React.FC<ListPostsProps> = ({posts, isLoading, page}) => {
+    const {id: userId} = useParams<RouteParams>();
     const{postsStore} = useRootStore();
 
     useEffect(() => {
-        postsStore.loadPosts();
+        let mounted = true;
 
-    },[postsStore])
+        if(mounted){
+            postsStore.loadPosts(page, Number(userId));
+        }
+        
+        return() => {
+            mounted = false;
+        }
+    },[userId, page, postsStore])
 
     return(
-        <>
-            <h3 className="user-id">User id:{id}</h3>
+        <>  
+        <div className='wrapper'>
+            <h3 className="user-id">User id:{userId}</h3>
             <div className='btn-container'>
-                <Link className='btn btn-outline-primary my-2' to={`/`}>Back</Link>
+                <Link className='btn btn-outline-primary my-2 btn-sm' to={`/`}>Back</Link>
             </div>
             <Table className='list-posts' bordered hover size="sm">
                     <thead>
@@ -35,39 +44,37 @@ export const ListPosts: React.FC<ListPostsProps> = ({posts, isLoading}) => {
                             <th>#</th>
                             <th>Post Title</th>
                             <th>Post Body</th>
-                            <th>Date Created</th>
-                            <th>Date Updated</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     {
                         isLoading ? (
-                            <td className='loading-container' colSpan={6}>
-                                <Spinner />
-                            </td>
+                            <tr>
+                                <td className='loading-container' colSpan={4}>
+                                    <Spinner />
+                                </td>
+                            </tr>
+                            
                         ) : (
                             posts.map(post => {
-                                const {user_id, title, body, created_at, updated_at} = post
-                                if(Number(id) === user_id){
-                                    return (
-                                        <tr key={user_id} className='item'>
-                                            <td>{user_id}</td>
-                                            <td>{title}</td>
-                                            <td>{body}</td>
-                                            <td>{created_at}</td>
-                                            <td>{updated_at}</td>
-                                            <td>
-                                                <Link className='btn btn-primary btn-sm' to={`/post-details/${id}/`}>Show</Link>
-                                            </td>
-                                        </tr>
-                                    )
-                                }
+                                const {id, user_id, title, body} = post
+                                return (
+                                    <tr key={user_id} className='item'>
+                                        <td className='id-col'>{id}</td>
+                                        <td>{title}</td>
+                                        <td>{body}</td>
+                                        <td className='action-col'>
+                                            <Link className='btn btn-primary btn-sm' to={`/post-details/${user_id}/`}>Show</Link>
+                                        </td>
+                                    </tr>
+                                )
                             })
                         )
                     }
                     </tbody>
                 </Table>
+            </div> 
         </>
     )
 }
