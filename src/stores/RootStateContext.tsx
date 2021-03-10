@@ -1,6 +1,6 @@
 import React from 'react';
 import {UsersStore} from './UsersStore';
-import {PostsStore} from './PostStore';
+import {PostsStore} from './PostsStore';
 import {CommentsStore} from './CommentsStore';
 
 type RootStateContextValue = {
