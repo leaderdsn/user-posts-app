@@ -1,5 +1,5 @@
-import React, {ReactNode} from 'react';
-import {PageItem, Pagination as Pag, } from 'react-bootstrap';
+import React, { ReactNode } from 'react';
+import {PageItem, Pagination as Paginate, } from 'react-bootstrap';
 import './pagination.css'
 import {IPagination} from '../../stores/UsersStore';
 
@@ -7,13 +7,14 @@ interface PaginationProps extends IPagination {
     paginate: (page: number) => void
 }
 
-export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 0, total = 0, limit = 0, paginate}) => {
+export const Pagination: React.FC<PaginationProps> = ({ pages = 1, page = 1, total = 0, limit = 0, paginate}) => {
     const content: ReactNode[] = [];
     const pagesCount = Math.ceil(total/limit)
 
-    if(pages > 10){
-        if(page > 5){
-            for (let i = page-4; i <= page+5; i++) {
+    if(pages > limit){
+        console.log(limit)
+        if(page > Math.round(limit/2)){
+            for (let i = page-(Math.round(limit/2)-1); i <= page+(Math.round(limit/2)); i++) {
                 content.push((
                     <PageItem
                         key={i}
@@ -26,7 +27,7 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 0, tot
                 if(i === pagesCount) break
             }
         } else {
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= limit; i++) {
                 content.push((
                     <PageItem
                         key={i}
@@ -52,20 +53,9 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 0, tot
             ))
         }
     }
-    // for (let i = 1; i < pages; i++) {
-    //     content.push((
-    //         <PageItem
-    //             key={i}
-    //             active={i === page}
-    //             onClick={() => paginate(i)}
-    //         >
-    //             {i}
-    //         </PageItem>
-    //     ))
-    // }
 
     return (
-        <Pag>
+        <Paginate className='pagination'>
             <PageItem
                 onClick={()=> paginate(1)}
                 disabled={ page !== 1 ? false : true }   
@@ -93,6 +83,6 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 0, tot
             >
                 Last
             </PageItem>
-        </Pag>
+        </Paginate>
     )
 }
