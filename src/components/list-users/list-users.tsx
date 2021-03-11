@@ -12,14 +12,16 @@ interface ListUsersProps {
 }
 
 export const ListUsers: React.FC<ListUsersProps> = observer(({users, isLoading}) => {
-    const[itemChecked, setItemChecked] = useState<Boolean>(false)
+    const[itemChecked, setItemChecked] = useState<number>()
 
     const onCheckedHandler = (e:React.ChangeEvent<HTMLInputElement>, id:number) => {
         if(e.target.checked){  
-            console.log(e)
-            return setItemChecked(true)
+            // let node: NodeListOf<ChildNode> = e.target.offsetParent?.parentNode?.parentNode?.lastChild?.childNodes?.classList
+        
+        console.log(e)
+            return setItemChecked(id)
         }  
-        setItemChecked(false)
+        return setItemChecked(0)
     }
 
 
@@ -55,13 +57,14 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({users, isLoading})
                                         <td className='choice-col'>
                                             <Form.Check type="checkbox" 
                                                 onChange={(e)=> onCheckedHandler(e, id)} 
+                                                onClick={this.onCheckedHandler(id)} 
                                             />
                                         </td>
                                         <td>{name}</td>
                                         <td>{gender}</td>
                                         <td>{status}</td>
                                         <td className="action-col">
-                                            <Link id={`btn-${id}`} className={`btn btn-sm ${itemChecked ? 'btn-secondary disabled-link': 'btn-primary' }`} to={`/posts/${id}/`} >Go to posts</Link>
+                                            <Link id={`btn-${id}`} className={`btn btn-sm ${!itemChecked ? 'btn-secondary disabled-link': 'btn-primary' }`} to={`/posts/${id}/`} >Go to posts</Link>
                                         </td>
                                     </tr>
                                 )
