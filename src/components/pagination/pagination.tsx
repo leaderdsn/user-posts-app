@@ -1,25 +1,25 @@
 import React from 'react';
-import {PageItem, Pagination as Paginate, } from 'react-bootstrap';
+import { PageItem, Pagination as Paginate, } from 'react-bootstrap';
 import './pagination.css'
-import {IPagination} from '../../interfaces/pagination';
+import { IPagination } from '../../interfaces/pagination';
 
 interface PaginationProps extends IPagination {
     paginate: (page: number) => void
 }
 
-export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, total = 0, limit = 20, paginate}) => {
+export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, total = 0, limit = 20, paginate }) => {
 
     return (
         <Paginate className='pagination' size='sm'>
             <PageItem
-                onClick={()=> paginate(1)}
-                disabled={ page === 1 }
+                onClick={() => paginate(1)}
+                disabled={page === 1}
             >
                 ❮❮
             </PageItem>
             <PageItem
-                onClick={()=> page === 1 ? null : paginate(page - 1)}
-                disabled={ page === 1 }
+                onClick={() => page === 1 ? null : paginate(page - 1)}
+                disabled={page === 1}
             >
                 ❮
             </PageItem>
@@ -27,15 +27,15 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, tot
                 {`Page ${page} of ${pages}`}
             </PageItem>
             <PageItem
-                onClick={()=> page === pages ? null : paginate(page + 1)}
-                disabled={ page === pages || pages === 0 }
+                onClick={() => page === pages ? null : paginate(page + 1)}
+                disabled={page === pages || pages === 0}
             >
                 ❯
             </PageItem>
             <PageItem
                 className='page-last'
-                onClick={()=> paginate(pages)}
-                disabled={ page === pages || pages === 0 }
+                onClick={() => paginate(pages)}
+                disabled={page === pages || pages === 0}
             >
                 ❯❯
             </PageItem>

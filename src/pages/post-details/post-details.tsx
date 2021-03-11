@@ -11,12 +11,12 @@ interface RouteParams {
 
 export const PostDetails: React.FC = observer(() => {
     const { id: postId } = useParams<RouteParams>();
-    const {commentsStore} = useRootStore();
-    const {comments, isLoading, pagination} = commentsStore;
+    const { commentsStore } = useRootStore();
+    const { comments, isLoading, pagination } = commentsStore;
     const hasComments = !!comments.length
     const showPagination = !isLoading && hasComments
     const paginate = (pageNumber: number) => commentsStore.loadComments(pageNumber)
-    
+
     useEffect(() => {
         commentsStore.loadComments(pagination?.page, Number(postId));
 
@@ -25,7 +25,7 @@ export const PostDetails: React.FC = observer(() => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
+
     return (
         <>
             <ListComments

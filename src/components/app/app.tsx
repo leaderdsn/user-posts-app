@@ -21,16 +21,16 @@ configure({
 export const App = () => {
     return (
         <>
-        <div className="app">
-            <Router>
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/posts/:id/" exact component={Posts} />
-                <Route path="/post-details/:id/" exact component={PostDetails} />
-                <Redirect to="/" />
-            </Switch>
-            </Router>
-        </div>
+            <div className="app">
+                <Router>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/posts/:id/" exact component={Posts} />
+                        <Route path="/post-details/:id/" exact component={PostDetails} />
+                        <Redirect to="/" />
+                    </Switch>
+                </Router>
+            </div>
         </>
     );
 };

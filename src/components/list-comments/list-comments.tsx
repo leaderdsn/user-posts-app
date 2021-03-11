@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Form } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import Spinner from '../spinner';
 import { IComment } from '../../stores/CommentsStore';
 import './list-comments.css';
@@ -38,7 +38,7 @@ export const ListComments: React.FC<ListCommentsProps> = ({ postId, comments, is
                                 </tr>
                             ) : (
                                 comments.map(comment => {
-                                    const { id, post_id, name, body } = comment
+                                    const { id, name, body } = comment
                                     return (
                                         <tr key={id}>
                                             <td>{id}</td>
