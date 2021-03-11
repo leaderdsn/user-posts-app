@@ -1,6 +1,7 @@
 import {action, makeObservable, observable} from 'mobx';
 import {AxiosResponse} from 'axios';
 import {api} from '../api/api';
+import {IMeta, IPagination} from '../interfaces/pagination';
 
 export interface IUser {
     id: number
@@ -9,20 +10,9 @@ export interface IUser {
     status: string
 }
 
-export interface IMeta {
-    pagination: IPagination
-}
-
-export interface IPagination {
-    limit?: number
-    total?: number
-    pages?: number
-    page?: number
-}
-
 export class UsersStore {
     @observable users: IUser[] = []
-    @observable pagination?: IPagination
+    @observable pagination:  null | IPagination = null
     @observable isLoading: boolean = false
 
     constructor() {
