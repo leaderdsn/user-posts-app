@@ -2,6 +2,11 @@
     "name": "user-posts-app",
     "version": "0.1.0",
     "private": true,
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leaderdsn/user-posts-app.git"
+    },
     "dependencies": {
         "axios": "^0.21.1",
         "react": "^17.0.1",
@@ -57,17 +62,5 @@
         "@types/react-dom": "^17.0.1",
         "@types/react-router-dom": "^5.1.7",
         "typescript": "^4.2.3"
-    },
-    "description": "- [npm](https://www.npmjs.com/package/npm)\r - [nodejs](https://nodejs.org/en/)",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/leaderdsn/user-posts-app.git"
-    },
-    "author": "Aleksandrov Sergey (leaderdsn.it@gmail.com)",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/leaderdsn/user-posts-app/issues"
-    },
-    "homepage": "https://github.com/leaderdsn/user-posts-app#readme"
+    }
 }
