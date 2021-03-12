@@ -25,8 +25,8 @@ export const App = () => {
                 <Router>
                     <Switch>
                         <Route path="/" exact component={Home} />
-                        <Route path="/posts/:id/" exact component={Posts} />
-                        <Route path="/post-details/:id/" exact component={PostDetails} />
+                        <Route path="/posts/:id/:name/" exact component={Posts} />
+                        <Route path="/post-details/:user_id/:name/:id/:title/:body" exact component={PostDetails} />
                         <Redirect to="/" />
                     </Switch>
                 </Router>
