@@ -4,6 +4,7 @@ import { api } from '../api/api';
 import { IMeta, IPagination } from '../interfaces/pagination';
 
 export interface IComment {
+    children: IComment;
     id: number
     post_id: number
     name: string
@@ -22,13 +23,13 @@ export class CommentsStore {
     }
 
     @action
-    async loadComments(page: number = 1, postId?: number) {
+    async loadComments(postId?: number) {
         if (this.isLoading) return
 
         this.isLoading = true
 
         try {
-            const { data: resData }: AxiosResponse<{ data: IComment[], meta: IMeta }> = await api.get(`/posts/${postId}/comments?page=${page}`)
+            const { data: resData }: AxiosResponse<{ data: IComment[], meta: IMeta }> = await api.get(`/posts/${postId}/comments`)
             this.comments = resData.data
             this.pagination = resData.meta.pagination
         } catch (e) {

@@ -7,10 +7,11 @@ import { useParams } from 'react-router';
 
 interface RouteParams {
     id: string
+    name: string
 }
 
 export const Posts: React.FC = observer(() => {
-    const { id: userId } = useParams<RouteParams>();
+    const { id: user_id,  name } = useParams<RouteParams>();
     const { postsStore } = useRootStore();
     const { posts, isLoading, pagination } = postsStore;
     const hasPosts = !!posts.length
@@ -18,7 +19,7 @@ export const Posts: React.FC = observer(() => {
     const paginate = (pageNumber: number) => postsStore.loadPosts(pageNumber)
 
     useEffect(() => {
-        postsStore.loadPosts(pagination?.page, Number(userId));
+        postsStore.loadPosts(pagination?.page, Number(user_id));
 
         return () => {
             postsStore.reset()
@@ -29,7 +30,7 @@ export const Posts: React.FC = observer(() => {
     return (
         <>
             <ListPosts
-                userId={userId}
+                userName={name}
                 posts={posts}
                 isLoading={isLoading}
             />

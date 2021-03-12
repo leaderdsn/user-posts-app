@@ -8,10 +8,10 @@ import './list-posts.css';
 interface ListPostsProps {
     posts: IPost[]
     isLoading?: boolean
-    userId:string
+    userName: string
 }
 
-export const ListPosts: React.FC<ListPostsProps> = ({ userId, posts, isLoading }) => {
+export const ListPosts: React.FC<ListPostsProps> = ({userName, posts, isLoading}) => {
     const [itemsChecked, setItemsChecked] = useState<number[]>([])
 
     const onCheckedHandler = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
@@ -25,17 +25,16 @@ export const ListPosts: React.FC<ListPostsProps> = ({ userId, posts, isLoading }
     return (
         <>
             <div className='wrapper'>
-                <h3 className="user-id">User id:{userId}</h3>
+                <h3 className="user-id">User name: {userName}</h3>
                 <div className='btn-container'>
                     <Link className='btn btn-outline-primary my-2 btn-sm' to={`/`}>Back</Link>
                 </div>
-                <Table className='list-posts' bordered hover size="sm">
-                    <thead>
+                <Table className='list-posts border-secondary rounded' bordered hover size="sm">
+                    <thead className='list-posts-head'>
                         <tr>
                             <th>#</th>
                             <th>Choice</th>
                             <th>Post Title</th>
-                            <th>Post Body</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,10 +60,9 @@ export const ListPosts: React.FC<ListPostsProps> = ({ userId, posts, isLoading }
                                                 />
                                             </td>
                                             <td>{title}</td>
-                                            <td>{body}</td>
                                             <td className='action-col'>
                                             <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`} 
-                                                    to={`/post-details/${id}/`}>Show</Link>
+                                                    to={`/post-details/${user_id}/${userName}/${id}/${title}/${body}`}>Show post</Link>
                                             </td>
                                         </tr>
                                     )

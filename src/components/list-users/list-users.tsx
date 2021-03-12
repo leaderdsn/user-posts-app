@@ -62,7 +62,7 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({ users, isLoading 
                                             <td>{status}</td>
                                             <td className="action-col">
                                                 <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
-                                                    to={`/posts/${id}/`} >Go to posts</Link>
+                                                    to={`/posts/${id}/${name}`} >Go to posts</Link>
                                             </td>
                                         </tr>
                                     )
