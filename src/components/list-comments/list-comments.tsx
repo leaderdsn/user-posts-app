@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 import Spinner from '../spinner';
@@ -11,47 +11,72 @@ interface ListCommentsProps {
     postId: string
 }
 
+const commentsShow: React.FC<ListCommentsProps> = ({comments, children}) => {
+    comments.map(comment => {
+        const { id, name, body } = comment
+        return (
+            <>
+                <tr key={id}>
+                    <tr>
+                        <td>{id}</td>
+                    </tr>
+                    <tr>
+                        <td>{name}</td>
+                    </tr>
+                    <tr>
+                        <td>{body}</td>
+                    </tr>
+                    {
+                        <tr>
+                            {children ? commentsShow(children): null} 
+                        </tr>
+                    }
+                </tr>
+            </>
+        )
+    })
+}
+
 export const ListComments: React.FC<ListCommentsProps> = ({ postId, comments, isLoading }) => {
 
     return (
         <>
-            <div className='wrapper'>
-                <h3 className="user-id">Post id:{postId}</h3>
-                <div className='btn-container'>
-                    <Link className='btn btn-outline-primary my-2 btn-sm' to={`/posts/${postId}`}>Back</Link>
-                </div>
-                <Table className='list-posts' bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>User name</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            isLoading ? (
-                                <tr>
-                                    <td className='loading-container' colSpan={3}>
-                                        <Spinner />
-                                    </td>
-                                </tr>
-                            ) : (
-                                comments.map(comment => {
-                                    const { id, name, body } = comment
-                                    return (
-                                        <tr key={id}>
-                                            <td>{id}</td>
-                                            <td>{name}</td>
-                                            <td>{body}</td>
-                                        </tr>
-                                    )
-                                })
-                            )
-                        }
-                    </tbody>
-                </Table>
-            </div>
+            <h3 className="user-id">Comments</h3>
+            <Table className='list-posts' bordered hover size="sm">
+                <thead>
+                </thead>
+                <tbody>
+                    {
+                        isLoading ? (
+                            <tr>
+                                <td className='loading-container'>
+                                    <Spinner />
+                                </td>
+                            </tr>
+                        ) : (
+                            commentsShow(comments)
+                            // comments.map(comment => {
+                            //     const { id, name, body } = comment
+                            //     return (
+                            //         <>
+                            //             <tr key={id}>
+                            //                 <tr>
+                            //                     <td>{id}</td>
+                            //                 </tr>
+                            //                 <tr>
+                            //                     <td>{name}</td>
+                            //                 </tr>
+                            //                 <tr>
+                            //                     <td>{body}</td>
+                            //                 </tr>
+                            //             </tr>
+                            //         </>
+                            //     )
+                            // })
+                        )
+                    }
+                </tbody>
+            </Table>
         </>
     )
 }
