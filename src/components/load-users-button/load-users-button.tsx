@@ -5,14 +5,15 @@ import './load-users-button.css';
 
 export const LoadUsersButton: React.FC = observer(() => {
     const { usersStore } = useRootStore();
+    
     const onClickBtn = () => {
-        usersStore.loadUsers()
-    }
+        usersStore.loadUsers();
+    };
 
     return (
         <div
             className='load-users-button'
             onClick={onClickBtn}
         />
-    )
-})
+    );
+});

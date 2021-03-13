@@ -3,7 +3,7 @@
     height: 40px;
     border-radius: 50%;
     background-image: url(/src/images/users.svg);
-    border: 1px solid rgb(155, 155, 155)
+    border: 1px solid rgb(155, 155, 155);
 }
 
 .load-users-button:hover {

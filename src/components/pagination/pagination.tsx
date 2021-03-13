@@ -1,11 +1,11 @@
 import React from 'react';
-import { PageItem, Pagination as Paginate, } from 'react-bootstrap';
-import './pagination.css'
+import { PageItem, Pagination as Paginate } from 'react-bootstrap';
 import { IPagination } from '../../interfaces/pagination';
+import './pagination.css';
 
 interface PaginationProps extends IPagination {
-    paginate: (page: number) => void
-}
+    paginate: (page: number) => void;
+};
 
 export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, total = 0, limit = 20, paginate }) => {
 
@@ -40,5 +40,5 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, tot
                 ❯❯
             </PageItem>
         </Paginate>
-    )
-}
+    );
+};
