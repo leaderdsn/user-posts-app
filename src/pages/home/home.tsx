@@ -4,6 +4,7 @@ import { ListUsers } from '../../components/list-users';
 import { useRootStore } from '../../stores/RootStateContext';
 import { Pagination } from '../../components/pagination';
 import { observer } from 'mobx-react-lite';
+import { PaginationProps } from '../../components/pagination-props';
 
 export const Home: React.FC = observer(() => {
     const { usersStore } = useRootStore();
@@ -19,9 +20,20 @@ export const Home: React.FC = observer(() => {
                 users={users}
                 isLoading={isLoading}
             />
-            {
+            {/* {
                 showPagination && (
                     <Pagination
+                        pages={pagination?.pages}
+                        page={pagination?.page}
+                        total={pagination?.total}
+                        limit={pagination?.limit}
+                        paginate={paginate}
+                    />
+                )
+            } */}
+            {
+                showPagination && (//@ts-ignore
+                    <PaginationProps
                         pages={pagination?.pages}
                         page={pagination?.page}
                         total={pagination?.total}
