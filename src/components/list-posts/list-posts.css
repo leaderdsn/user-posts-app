@@ -11,11 +11,6 @@
 
 .list-posts {
     width: 100%;
-    border-width: 3px;
-}
-
-.list-posts-head {
-    border-radius: 4px;
 }
 
 .user-id {
@@ -37,10 +32,8 @@
 
 .id-col {
     text-align: center;
-    width: 40px;
 }
 
-.item-checked {
-    border-width: 2px;
-    background-color: red;
+.choice-col {
+    background-color: none
 }
