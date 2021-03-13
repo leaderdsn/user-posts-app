@@ -1,0 +1,19 @@
+.post-container {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid red;
+}
+
+.post-list {
+    width: 100%
+}
+
+.post-header-name {
+    font-weight: 400;
+}
+
+.header-title {
+    width: 250px;
+}
