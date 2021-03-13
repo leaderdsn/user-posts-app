@@ -4,7 +4,7 @@ import { api } from '../api/api';
 import { IMeta, IPagination } from '../interfaces/pagination';
 
 export interface IComment {
-    children: IComment;
+    children: IComment[];
     id: number
     post_id: number
     name: string
