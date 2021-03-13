@@ -1,40 +1,19 @@
-.wrapper {
+.users-container {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
     padding: 5px;
 }
 
-.pangination-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loading-container {
-    text-align: center;
-}
-
-.list-users {
-    width: 100%;
-}
-
-.action-col {
-    text-align: center;
+.header-action {
     width: 120px;
 }
 
-.id-col {
-    text-align: center;
-    width: 40px;
+.header-id {
+    width: 50px;
 }
 
-.choice-col {
-    text-align: center;
-    width: 40px;
-}
-
-.disabled-link {
-    pointer-events: none;
+.header-choice {
+    background-color: none;
+    width: 50px;
 }
