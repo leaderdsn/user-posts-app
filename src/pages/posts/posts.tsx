@@ -6,12 +6,12 @@ import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router';
 
 interface RouteParams {
-    id: string
+    user_id: string
     name: string
 }
 
 export const Posts: React.FC = observer(() => {
-    const { id: user_id,  name } = useParams<RouteParams>();
+    const { user_id,  name } = useParams<RouteParams>();
     const { postsStore } = useRootStore();
     const { posts, isLoading, pagination } = postsStore;
     const hasPosts = !!posts.length
@@ -30,7 +30,7 @@ export const Posts: React.FC = observer(() => {
     return (
         <>
             <ListPosts
-                userName={name}
+                name={name}
                 posts={posts}
                 isLoading={isLoading}
             />
