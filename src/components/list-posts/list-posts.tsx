@@ -8,10 +8,10 @@ import './list-posts.css';
 interface ListPostsProps {
     posts: IPost[]
     isLoading?: boolean
-    userName: string
+    name: string
 }
 
-export const ListPosts: React.FC<ListPostsProps> = ({userName, posts, isLoading}) => {
+export const ListPosts: React.FC<ListPostsProps> = ({name, posts, isLoading}) => {
     const [itemsChecked, setItemsChecked] = useState<number[]>([])
 
     const onCheckedHandler = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
@@ -25,17 +25,17 @@ export const ListPosts: React.FC<ListPostsProps> = ({userName, posts, isLoading}
     return (
         <>
             <div className='wrapper'>
-                <h3 className="user-id">User name: {userName}</h3>
+                <h3 className="user-id">User name: {name}</h3>
                 <div className='btn-container'>
                     <Link className='btn btn-outline-primary my-2 btn-sm' to={`/`}>Back</Link>
                 </div>
-                <Table className='list-posts border-secondary rounded' bordered hover size="sm">
+                <Table className='list-posts' hover size="sm" responsive>
                     <thead className='list-posts-head'>
                         <tr>
-                            <th>#</th>
-                            <th>Choice</th>
+                            <th className='id-col'>#</th>
+                            <th className='choice-col'>Choice</th>
                             <th>Post Title</th>
-                            <th>Action</th>
+                            <th className='action-col'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,17 +52,17 @@ export const ListPosts: React.FC<ListPostsProps> = ({userName, posts, isLoading}
                                     const { id, user_id, title, body } = post
                                     const isItemChecked = itemsChecked.includes(id)
                                     return (
-                                        <tr key={user_id} className='item'>
-                                            <td className='id-col'>{id}</td>
-                                            <td className='choice-col'>
+                                        <tr key={`post-${id}`} className={`item ${isItemChecked ? 'item-checked bg-success' : ''}`}>
+                                            <td className='id-col align-middle'>{id}</td>
+                                            <td className='choice-col align-middle'>
                                                 <Form.Check type="checkbox"
                                                     onChange={(e) => onCheckedHandler(e, id)}
                                                 />
                                             </td>
                                             <td>{title}</td>
-                                            <td className='action-col'>
+                                            <td className='action-col align-middle'>
                                             <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`} 
-                                                    to={`/post-details/${user_id}/${userName}/${id}/${title}/${body}`}>Show post</Link>
+                                                    to={`/post-details/${user_id}/${name}/${id}/${title}/${body}`}>Show post</Link>
                                             </td>
                                         </tr>
                                     )

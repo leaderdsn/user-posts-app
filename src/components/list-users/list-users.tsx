@@ -25,7 +25,7 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({ users, isLoading 
     return (
         <>
             <div className='wrapper'>
-                <Table className='list-users' bordered hover size='sm'>
+                <Table className='list-users' hover size='sm' responsive>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -46,23 +46,23 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({ users, isLoading 
                                 </tr>
                             ) : (
                                 users.map(user => {
-                                    const { id, name, gender, status } = user
-                                    const isItemChecked = itemsChecked.includes(id)
+                                    const { id: user_id, name, gender, status } = user
+                                    const isItemChecked = itemsChecked.includes(user_id)
 
                                     return (
-                                        <tr key={id} className="item">
-                                            <td className='id-col'>{id}</td>
-                                            <td className='choice-col'>
+                                        <tr key={`user-${user_id}`} className={`item ${isItemChecked ? 'item-checked bg-success' : ''}`}>
+                                            <td className='id-col align-middle'>{user_id}</td>
+                                            <td className='choice-col align-middle'>
                                                 <Form.Check type="checkbox"
-                                                    onChange={(e) => onCheckedHandler(e, id)}
+                                                    onChange={(e) => onCheckedHandler(e, user_id)}
                                                 />
                                             </td>
                                             <td>{name}</td>
                                             <td>{gender}</td>
                                             <td>{status}</td>
-                                            <td className="action-col">
+                                            <td className="action-col align-middle">
                                                 <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
-                                                    to={`/posts/${id}/${name}`} >Go to posts</Link>
+                                                    to={`/posts/${user_id}/${name}`} >Go to posts</Link>
                                             </td>
                                         </tr>
                                     )
