@@ -1,1 +1,0 @@
-export { PaginationProps } from './pagination-props';
