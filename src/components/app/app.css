@@ -6,3 +6,7 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.disabled-link {
+    pointer-events: none;
+}
