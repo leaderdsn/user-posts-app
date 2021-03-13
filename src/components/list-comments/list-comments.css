@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.comments-container {
+    width: 100%;
+    background: rgb(143, 106, 106);
+}
+
 .list-comments {
     width: 100%;
     max-width: 1200px;
@@ -34,4 +39,12 @@
 .id-col {
     text-align: center;
     width: 40px;
+}
+
+.id-comment {
+    width: 100px;
+}
+
+.header-comment {
+    width: 100px;
 }
