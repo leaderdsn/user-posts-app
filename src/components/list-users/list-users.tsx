@@ -28,12 +28,12 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({ users, isLoading 
                 <Table size='sm' hover responsive>
                     <thead>
                         <tr>
-                            <th className='header-id text-center'>#</th>
-                            <th className='header-choice'>Choice</th>
-                            <th>User name</th>
-                            <th>Gender</th>
-                            <th>Status</th>
-                            <th className='header-action text-center'>Action</th>
+                            <th className='header-users-id text-center'>#</th>
+                            <th className='header-users-choice'>Choice</th>
+                            <th className='header-users-name'>User name</th>
+                            <th className='header-users-gender'>Gender</th>
+                            <th className='header-users-status'>Status</th>
+                            <th className='header-users-action text-center'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,15 +53,15 @@ export const ListUsers: React.FC<ListUsersProps> = observer(({ users, isLoading 
                                         <tr key={id} className={`${isItemChecked ? 'bg-success' : ''}`}>
                                             <td className='align-middle text-center'>{id}</td>
                                             <td className='align-middle text-center'>
-                                                <Form.Check type="checkbox"
+                                                <Form.Check className='choice-user-item' type='checkbox'
                                                     onChange={(e) => onCheckedHandler(e, id)}
                                                 />
                                             </td>
-                                            <td>{name}</td>
-                                            <td>{gender}</td>
-                                            <td>{status}</td>
+                                            <td className='align-middle text-nowrap text-truncate'>{name}</td>
+                                            <td className='align-middle'>{gender}</td>
+                                            <td className='align-middle'>{status}</td>
                                             <td className='align-middle text-center'>
-                                                <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
+                                                <Link className={`btn-show-posts text-nowrap text-truncate btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
                                                     to={`/${id}/posts/`} >Go to posts</Link>
                                             </td>
                                         </tr>

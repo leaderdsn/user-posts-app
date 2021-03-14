@@ -33,13 +33,13 @@ export const Post: React.FC<ListPostProps> = observer(({postId, userId, isLoadin
     return (
         <>
             <div className='post-container'>
-                <h4>Post name: <span className='post-header-name '>{title}</span></h4>
-                <Link className='btn btn-outline-primary my-2 btn-sm' to={`/${userId}/posts/`}>Back</Link>
+                <h4 className='post-header'>Post name: <span className='post-header-name'>{title}</span></h4>
+                <Link className='btn-back-posts btn btn-outline-primary my-2 btn-sm' to={`/${userId}/posts/`}>Back</Link>
                 <Table className='post-list' hover size='sm' responsive>
                     <thead>
                         <tr>
-                            <th className='header-id text-center'>#</th>
-                            <th className='header-title'>Post Title</th>
+                            <th className='header-post-id text-center'>#</th>
+                            <th className='header-post-title'>Post Title</th>
                             <th>Post Body</th>
                             <th className='header-action text-center'>Action</th>
                         </tr>
@@ -58,7 +58,7 @@ export const Post: React.FC<ListPostProps> = observer(({postId, userId, isLoadin
                                     <td>{title}</td>
                                     <td>{body}</td>
                                     <td className='align-middle text-center'>
-                                        <Button className='btn btn-sm'
+                                        <Button className='btn-show-comments btn btn-sm'
                                             onClick={onClickBtn}
                                         >
                                             Show comments

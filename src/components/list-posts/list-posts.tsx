@@ -25,15 +25,15 @@ export const ListPosts: React.FC<ListPostsProps> = ({ name, posts, isLoading }) 
     return (
         <>
             <div className='posts-container'>
-                <h4>User name: <span className='header-user-name'>{name}</span></h4>
-                <Link className='btn btn-outline-primary my-2 btn-sm' to={`/`}>Back</Link>
+                <h4 className='posts-header'>User name: <span className='header-user-name'>{name}</span></h4>
+                <Link className='btn-back-users btn btn-outline-primary my-2 btn-sm' to={`/`}>Back</Link>
                 <Table className='posts-list' size='sm' hover responsive>
                     <thead>
                         <tr>
-                            <th className='header-id'>#</th>
-                            <th className='header-choice text-center'>Choice</th>
+                            <th className='header-posts-id'>#</th>
+                            <th className='header-posts-choice text-center'>Choice</th>
                             <th>Post Title</th>
-                            <th className='header-action text-center'>Action</th>
+                            <th className='header-posts-action text-center'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,13 +53,13 @@ export const ListPosts: React.FC<ListPostsProps> = ({ name, posts, isLoading }) 
                                         <tr key={id} className={`${isItemChecked ? 'bg-success' : ''}`}>
                                             <td className='align-middle text-center'>{id}</td>
                                             <td className='align-middle text-center'>
-                                                <Form.Check type="checkbox"
+                                                <Form.Check className='choice-post-item' type='checkbox'
                                                     onChange={(e) => onCheckedHandler(e, id)}
                                                 />
                                             </td>
-                                            <td>{title}</td>
+                                            <td className='align-middle'>{title}</td>
                                             <td className='align-middle text-center'>
-                                                <Link className={`btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
+                                                <Link className={`btn-show-post btn btn-sm ${isItemChecked ? 'btn-primary' : 'btn-secondary disabled-link'}`}
                                                     to={`/${user_id}/posts/${id}`}>Show post</Link>
                                             </td>
                                         </tr>
