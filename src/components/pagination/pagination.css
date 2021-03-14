@@ -1,18 +1,30 @@
-    .menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 50px;
-        height: 100%;
-        padding: 3.5px;
-        align-content: flex-start;
-        align-items: flex-start;
-        border-right: 1px solid rgb(155, 155, 155);
+.pagination {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .page-link {
+        font-size: 0.9rem !important;
     }
-    
-    .pagination {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .page-link {
+        font-size: 0.8rem !important;
     }
+}
+
+@media (max-width: 575px) {
+    .page-link {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-link {
+        font-size: 0.5rem !important;
+    }
+}
