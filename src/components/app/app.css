@@ -8,14 +8,58 @@
     flex-wrap: wrap;
 }
 
+.menu {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 49px;
+    height: 100%;
+    padding: 4px;
+    align-content: flex-start;
+    align-items: flex-start;
+    border-right: 1px solid rgb(155, 155, 155);
+}
+
 .disabled-link {
     pointer-events: none;
 }
 
-@media (max-width: 1199px) {}
+@media (max-width: 767px) {
+    .app {
+        padding: 3px 3px 3px 43px;
+    }
+    .app .menu {
+        width: 39px;
+        padding: 2px
+    }
+}
 
-@media (max-width: 991px) {}
+@media (max-width: 575px) {
+    .app {
+        padding: 3px 3px 3px 39px;
+    }
+    .app .menu {
+        width: 35px;
+        padding: 2px
+    }
+}
 
-@media (max-width: 767px) {}
+@media (max-width: 480px) {
+    .app {
+        padding: 1px 1px 1px 29px;
+    }
+    .app .menu {
+        width: 30px;
+        padding: 2px
+    }
+}
 
-@media (max-width: 575px) {}
+@media (max-width: 320px) {
+    .app {
+        padding: 1px 1px 1px 20px;
+    }
+    .app .menu {
+        width: 23px;
+        padding: 1px
+    }
+}
