@@ -10,7 +10,7 @@ interface PaginationProps extends IPagination {
 export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, total = 0, limit = 20, paginate }) => {
 
     return (
-        <Paginate className='pagination' size='sm'>
+        <Paginate size='sm'>
             <PageItem
                 onClick={() => paginate(1)}
                 disabled={page === 1}
