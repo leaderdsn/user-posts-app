@@ -1,10 +1,10 @@
 export interface IMeta {
-  pagination: IPagination
-}
+  pagination: IPagination;
+};
 
 export interface IPagination {
-  limit?: number
-  total?: number
-  pages?: number
-  page?: number
-}
+  limit?: number;
+  total?: number;
+  pages?: number;
+  page?: number;
+};

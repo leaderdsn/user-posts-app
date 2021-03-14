@@ -2,37 +2,31 @@ import { action, makeObservable, observable } from 'mobx';
 import { AxiosResponse } from 'axios';
 import { api } from '../api/api';
 import { IMeta, IPagination } from '../interfaces/pagination';
-
-export interface IUser {
-    id: number
-    name: string
-    gender: string
-    status: string
-}
+import {IUser} from './UserStore';
 
 export class UsersStore {
-    @observable users: IUser[] = []
-    @observable pagination: null | IPagination = null
-    @observable isLoading: boolean = false
+    @observable users: IUser[] = [];
+    @observable pagination: null | IPagination = null;
+    @observable isLoading: boolean = false;
 
     constructor() {
-        makeObservable(this)
-    }
+        makeObservable(this);
+    };
 
     @action
     async loadUsers(page: number = 1) {
-        if (this.isLoading) return
+        if (this.isLoading) return;
 
-        this.isLoading = true
+        this.isLoading = true;
 
         try {
-            const { data: resData }: AxiosResponse<{ data: IUser[], meta: IMeta }> = await api.get(`/users?page=${page}`)
-            this.users = resData.data
-            this.pagination = resData.meta.pagination
+            const { data: resData }: AxiosResponse<{ data: IUser[], meta: IMeta }> = await api.get(`/users?page=${page}`);
+            this.users = resData.data;
+            this.pagination = resData.meta.pagination;
         } catch (e) {
-            console.log(e)
-        }
+            console.log(e);
+        };
 
-        this.isLoading = false
-    }
-}
+        this.isLoading = false;
+    };
+};

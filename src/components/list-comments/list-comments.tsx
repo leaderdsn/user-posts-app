@@ -1,57 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 import Spinner from '../spinner';
 import { IComment } from '../../stores/CommentsStore';
 import './list-comments.css';
 
 interface ListCommentsProps {
-    comments: IComment[]
-    isLoading?: boolean
-    postId: string
+    comments: IComment[];
+    isLoading?: boolean;
 }
 
-export const ListComments: React.FC<ListCommentsProps> = ({ postId, comments, isLoading }) => {
+export const ListComments: React.FC<ListCommentsProps> = ({ comments, isLoading }) => {
+    if (isLoading) {
+        return (
+            <div className='loading-comments text-center'>
+                <Spinner />
+            </div>
+        )
+    } 
+
+    const hasComments = !!comments.length;
 
     return (
-        <>
-            <div className='wrapper'>
-                <h3 className="user-id">Post id:{postId}</h3>
-                <div className='btn-container'>
-                    <Link className='btn btn-outline-primary my-2 btn-sm' to={`/posts/${postId}`}>Back</Link>
-                </div>
-                <Table className='list-posts' bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>User name</th>
-                            <th>Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            isLoading ? (
-                                <tr>
-                                    <td className='loading-container' colSpan={3}>
-                                        <Spinner />
-                                    </td>
-                                </tr>
-                            ) : (
-                                comments.map(comment => {
-                                    const { id, name, body } = comment
-                                    return (
-                                        <tr key={id}>
-                                            <td>{id}</td>
+        hasComments ? (
+            <>  
+                <div className='comments-container'>
+                    <h4 className='comments-header'>Comments</h4>
+                    {comments.map(comment => {
+                        const { id, name, body } = comment
+                        return (
+                            <>
+                                <Table key={id} className='comment-container' size='sm' hover responsive>
+                                    <tbody>
+                                        <tr>
+                                            <th className='header-comment-id align-middle'>ID: {id}</th>
+                                            <th className='header-comment-name'>Name user</th>
                                             <td>{name}</td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th className='header-comment-body'>Comment</th>
                                             <td>{body}</td>
                                         </tr>
-                                    )
-                                })
-                            )
-                        }
-                    </tbody>
-                </Table>
-            </div>
-        </>
-    )
-}
+                                    </tbody>
+                                </Table>
+                            </>
+                        );
+                    })}
+                </div>
+            </>
+        ) : null
+    );
+};

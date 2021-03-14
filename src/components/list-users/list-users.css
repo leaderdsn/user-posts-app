@@ -1,40 +1,93 @@
-.wrapper {
+.users-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     box-sizing: border-box;
     padding: 5px;
+    /* white-space: nowrap; */
 }
 
-.pangination-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loading-container {
-    text-align: center;
-}
-
-.list-users {
-    width: 100%;
-}
-
-.action-col {
-    text-align: center;
+.header-users-action {
     width: 120px;
 }
 
-.id-col {
-    text-align: center;
-    width: 40px;
+.header-users-id {
+    width: 50px;
 }
 
-.choice-col {
-    text-align: center;
-    width: 40px;
+.header-users-choice {
+    background-color: none;
+    width: 50px;
 }
 
-.disabled-link {
-    pointer-events: none;
+@media (max-width: 1199px) {
+    .users-container {
+        max-width: 1149px;
+    }
+}
+
+@media (max-width: 991px) {
+    .users-container {
+        max-width: 941px;
+        font-size: 0.9rem;
+    }
+    .users-container .btn-show-posts {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .users-container {
+        max-width: 717px;
+        font-size: 0.8rem;
+    }
+    .users-container .btn-show-posts {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .users-container {
+        max-width: 525px;
+        font-size: 0.7rem;
+    }
+    .users-container .header-users-id {
+        width: 20px;
+    }
+    .users-container .header-users-choice {
+        background-color: none;
+        width: 20px;
+    }
+    .users-container .header-users-gender {
+        width: 20px;
+    }
+    .users-container .header-users-status {
+        width: 20px;
+    }
+    .users-container .header-users-action {
+        width: 60px;
+    }
+    .users-container .btn-show-posts {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .users-container {
+        max-width: 480px;
+        font-size: 0.5rem;
+    }
+    .users-container .choice-user-item input {
+        width: 10px;
+        height: 10px;
+    }
+    .users-container .btn-show-posts {
+        font-size: 0.5rem;
+        padding: 2px;
+    }
+}
+
+@media (max-width: 320px) {
+    .users-container {
+        max-width: 100%;
+    }
 }

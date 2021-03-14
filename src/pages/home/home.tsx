@@ -8,8 +8,8 @@ import { observer } from 'mobx-react-lite';
 export const Home: React.FC = observer(() => {
     const { usersStore } = useRootStore();
     const { users, isLoading, pagination } = usersStore;
-    const hasUsers = !!users.length
-    const showPagination = !isLoading && hasUsers
+    const hasUsers = !!users.length;
+    const showPagination = !isLoading && hasUsers;
     const paginate = (pageNumber: number) => usersStore.loadUsers(pageNumber);
 
     return (

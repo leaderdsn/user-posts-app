@@ -3,10 +3,39 @@
     height: 40px;
     border-radius: 50%;
     background-image: url(/src/images/users.svg);
-    border: 1px solid rgb(155, 155, 155)
+    border: 1px solid rgb(155, 155, 155);
 }
 
 .load-users-button:hover {
     background-color: rgb(50, 125, 187);
     background-image: url(/src/images/users-hover.svg);
+}
+
+@media (max-width: 767px) {
+    .load-users-button {
+        width: 35px;
+        height: 35px;
+        padding: 1px
+    }
+}
+
+@media (max-width: 575px) {
+    .load-users-button {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .load-users-button {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 320px) {
+    .load-users-button {
+        width: 20px;
+        height: 20px;
+    }
 }
