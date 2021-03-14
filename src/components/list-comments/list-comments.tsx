@@ -24,7 +24,7 @@ export const ListComments: React.FC<ListCommentsProps> = ({ comments, isLoading 
         hasComments ? (
             <>  
                 <div className='comments-container'>
-                    <h4 className='header-comments'>Comments</h4>
+                    <h4 className='comments-header'>Comments</h4>
                     {comments.map(comment => {
                         const { id, name, body } = comment
                         return (
