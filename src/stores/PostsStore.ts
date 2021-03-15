@@ -7,14 +7,15 @@ import { IPost } from './PostStore';
 export class PostsStore {
     @observable posts: IPost[] = [];
     @observable pagination: null | IPagination = null;
-    @observable isLoading: boolean = false;
+    @observable isLoading = false;
 
     constructor() {
         makeObservable(this);
-    };
+    }
 
     @action
-    async loadPosts(page: number = 1, userId?: string) {
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    async loadPosts(page = 1, userId?: string) {
         if (this.isLoading) return;
 
         this.isLoading = true;
@@ -25,15 +26,16 @@ export class PostsStore {
             this.pagination = resData.meta.pagination;
         } catch (e) {
             console.log(e);
-        };
+        }
 
         this.isLoading = false;
-    };
+    }
 
     @action
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     reset() {
         this.posts = [];
         this.pagination = null;
         this.isLoading = false;
-    };
-};
+    }
+}

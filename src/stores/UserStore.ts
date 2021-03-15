@@ -7,17 +7,18 @@ export interface IUser {
     name: string;
     gender: string;
     status: string;
-};
+}
 
 export class UserStore {
     @observable user: IUser | null = null;
-    @observable isLoading: boolean = false;
+    @observable isLoading = false;
 
     constructor() {
         makeObservable(this);
-    };
+    }
 
     @action
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     async loadUser(userId: string) {
         this.isLoading = true;
 
@@ -32,6 +33,7 @@ export class UserStore {
     }
 
     @action
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     reset () {
         this.user = null;
         this.isLoading = false;

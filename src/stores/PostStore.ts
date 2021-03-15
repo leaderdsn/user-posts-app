@@ -9,17 +9,18 @@ export interface IPost {
     body: string;
     created_at: Date;
     updated_at: Date;
-};
+}
 
 export class PostStore {
     @observable post: IPost | null = null;
-    @observable isLoading: boolean = false;
+    @observable isLoading = false;
 
     constructor() {
         makeObservable(this);
-    };
+    }
 
     @action
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     async loadPost(postId: string) {
         this.isLoading = true;
 
@@ -28,14 +29,15 @@ export class PostStore {
             this.post = resData.data;
         } catch (e) {
             console.log(e);
-        };
+        }
 
         this.isLoading = false;
-    };
+    }
 
     @action
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     reset () {
         this.post = null;
         this.isLoading = false;
-    };
-};
+    }
+}

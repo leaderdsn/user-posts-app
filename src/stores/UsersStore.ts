@@ -7,14 +7,15 @@ import {IUser} from './UserStore';
 export class UsersStore {
     @observable users: IUser[] = [];
     @observable pagination: null | IPagination = null;
-    @observable isLoading: boolean = false;
+    @observable isLoading = false;
 
     constructor() {
         makeObservable(this);
-    };
+    }
 
     @action
-    async loadUsers(page: number = 1) {
+     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    async loadUsers(page = 1) {
         if (this.isLoading) return;
 
         this.isLoading = true;
@@ -25,8 +26,8 @@ export class UsersStore {
             this.pagination = resData.meta.pagination;
         } catch (e) {
             console.log(e);
-        };
+        }
 
         this.isLoading = false;
-    };
-};
+    }
+}
