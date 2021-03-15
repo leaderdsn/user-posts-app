@@ -24,6 +24,12 @@
     pointer-events: none;
 }
 
+@media (max-width: 991px) {
+    .app .btn-back-users {
+        font-size: 0.9em;
+    }
+}
+
 @media (max-width: 767px) {
     .app {
         padding: 3px 3px 3px 43px;
@@ -31,6 +37,9 @@
     .app .menu {
         width: 39px;
         padding: 2px
+    }
+    .app .btn-back-users {
+        font-size: 0.8rem;
     }
 }
 
@@ -42,6 +51,9 @@
         width: 35px;
         padding: 2px
     }
+    .app .btn-back-users {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -51,6 +63,9 @@
     .app .menu {
         width: 30px;
         padding: 2px
+    }
+    .app .btn-back-users {
+        font-size: 0.5rem;
     }
 }
 
