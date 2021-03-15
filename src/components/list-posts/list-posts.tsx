@@ -19,7 +19,7 @@ export const ListPosts: React.FC<ListPostsProps> = ({ name, posts, isLoading }) 
             setItemsChecked([...itemsChecked, id]);
         } else {
             setItemsChecked([...itemsChecked.filter(item => item !== id)]);
-        };
+        }
     };
 
     return (

@@ -5,7 +5,7 @@ import './pagination.css';
 
 interface PaginationProps extends IPagination {
     paginate: (page: number) => void;
-};
+}
 
 export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, total = 0, limit = 20, paginate }) => {
 
