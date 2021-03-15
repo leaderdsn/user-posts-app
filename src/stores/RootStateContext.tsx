@@ -30,4 +30,5 @@ export const RootStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ child
     );
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useRootStore = () => React.useContext(RootStateContext);

@@ -13,6 +13,7 @@ configure({
     disableErrorBoundaries: true,
 });
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const App = () => {
     return (
         <>
