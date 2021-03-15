@@ -6,25 +6,37 @@
 }
 
 @media (max-width: 991px) {
-    .page-link {
-        font-size: 0.9rem !important;
+    ul.pagination li.page-item span.page-link {
+        font-size: 0.9rem
+    }
+    ul.pagination li.page-item a.page-link {
+        font-size: 0.9rem
     }
 }
 
 @media (max-width: 767px) {
-    .page-link {
-        font-size: 0.8rem !important;
+    ul.pagination li.page-item span.page-link {
+        font-size: 0.8rem
+    }
+    ul.pagination li.page-item a.page-link {
+        font-size: 0.8rem
     }
 }
 
 @media (max-width: 575px) {
-    .page-link {
-        font-size: 0.7rem !important;
+    ul.pagination li.page-item span.page-link {
+        font-size: 0.7rem
+    }
+    ul.pagination li.page-item a.page-link {
+        font-size: 0.7rem
     }
 }
 
 @media (max-width: 480px) {
-    .page-link {
-        font-size: 0.5rem !important;
+    ul.pagination li.page-item span.page-link {
+        font-size: 0.5rem
+    }
+    ul.pagination li.page-item a.page-link {
+        font-size: 0.5rem
     }
 }
