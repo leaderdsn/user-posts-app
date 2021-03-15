@@ -30,7 +30,7 @@ export const Posts: React.FC = observer(() => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    if (userStore.isLoading) {
+    if (postsStore.isLoading) {
         return <Spinner />
     }
 
