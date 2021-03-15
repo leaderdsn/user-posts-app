@@ -11,10 +11,11 @@ type RootStateContextValue = {
     postStore: PostStore;
     postsStore: PostsStore;
     commentsStore: CommentsStore;
-};
+}
 
 const RootStateContext = React.createContext<RootStateContextValue>({} as RootStateContextValue);
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const RootStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     const userStore = new UserStore();
     const usersStore = new UsersStore();

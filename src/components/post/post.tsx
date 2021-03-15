@@ -27,7 +27,6 @@ export const Post: React.FC<ListPostProps> = observer(({postId, userId, isLoadin
             postStore.reset();
             commentsStore.reset();
         };
-         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

@@ -27,7 +27,6 @@ export const Posts: React.FC = observer(() => {
             postsStore.reset()
             userStore.reset()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (postsStore.isLoading) {
