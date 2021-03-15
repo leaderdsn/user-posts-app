@@ -13,8 +13,8 @@
     font-weight: 400;
 }
 
-.header-title {
-    width: 250px;
+.header-post-title {
+    min-width: 250px;
 }
 
 .post-container .btn-show-comments {
