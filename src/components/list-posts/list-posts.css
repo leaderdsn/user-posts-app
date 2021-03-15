@@ -27,10 +27,6 @@
         .posts-header {
             font-size: 1.2rem;
         }
-        .posts-container .btn-back-users {
-            font-size: 0.9rem;
-            padding: 2px;
-        }
         .posts-container .btn-show-post {
             font-size: 0.9rem;
         }
@@ -43,10 +39,6 @@
         }
         .posts-header {
             font-size: 1.1rem;
-        }
-        .posts-container .btn-back-users {
-            font-size: 0.8rem;
-            padding: 2px;
         }
         .posts-container .btn-show-post {
             font-size: 0.8rem;
@@ -71,10 +63,6 @@
         .posts-container .header-posts-action {
             width: 60px;
         }
-        .posts-container .btn-back-users {
-            font-size: 0.7rem;
-            padding: 2px;
-        }
         .posts-container .btn-show-post {
             font-size: 0.7rem;
         }
@@ -91,10 +79,6 @@
         .posts-container .choice-post-item input {
             width: 10px;
             height: 10px;
-        }
-        .posts-container .btn-back-users {
-            font-size: 0.5rem;
-            padding: 2px;
         }
         .posts-container .btn-show-post {
             font-size: 0.5rem;
