@@ -12,21 +12,21 @@ interface IRouteParams {
 
 export const PostDetails: React.FC = observer(() => {
     const { postId, userId } = useParams<IRouteParams>();
-    const {postsStore, commentsStore} = useRootStore();
+    const { postsStore, commentsStore } = useRootStore();
     const { comments, isLoading: isLoadingComments } = commentsStore;
     const { isLoading: isLoadingPost } = postsStore;
 
     return (
         <>
-            <Post 
+            <Post
                 postId={postId}
                 userId={userId}
                 isLoading={isLoadingPost}
-                />
+            />
             <ListComments
                 comments={comments}
                 isLoading={isLoadingComments}
-        />
+            />
         </>
     );
 });
