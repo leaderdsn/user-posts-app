@@ -33,7 +33,6 @@ export const Pagination: React.FC<PaginationProps> = ({ pages = 0, page = 1, tot
                 ❯
             </PageItem>
             <PageItem
-                className='page-last'
                 onClick={() => paginate(pages)}
                 disabled={page === pages || pages === 0}
             >
