@@ -52,29 +52,6 @@
         padding: 2px
     }
     .app .btn-back-users {
-        font-size: 0.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .app {
-        padding: 1px 1px 1px 29px;
-    }
-    .app .menu {
-        width: 30px;
-        padding: 2px
-    }
-    .app .btn-back-users {
-        font-size: 0.5rem;
-    }
-}
-
-@media (max-width: 320px) {
-    .app {
-        padding: 1px 1px 1px 20px;
-    }
-    .app .menu {
-        width: 23px;
-        padding: 1px
+        font-size: 0.8rem;
     }
 }
