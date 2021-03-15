@@ -1,6 +1,6 @@
 .comments-container {
     width: 100%;
-    max-width: 1400px;
+    width: 1400px;
     box-sizing: border-box;
     padding: 5px;
 }
@@ -10,7 +10,7 @@
 }
 
 .comment-container {
-    max-width: 1200px;
+    max-width: 100%;
 }
 
 .header-comment-id {
@@ -30,7 +30,6 @@
 @media (max-width: 991px) {
     .comments-container {
         max-width: 941px;
-        font-size: 0.9rem;
     }
     .comments-header {
         font-size: 1.2rem;
@@ -62,10 +61,6 @@
 @media (max-width: 575px) {
     .comments-container {
         max-width: 525px;
-        font-size: 0.7rem;
-    }
-    .comments-header {
-        font-size: 1rem;
     }
     .comments-container .header-comment-id {
         width: 50px;
@@ -78,10 +73,6 @@
 @media (max-width: 480px) {
     .comments-container {
         max-width: 480px;
-        font-size: 0.5rem;
-    }
-    .comments-header {
-        font-size: 0.8rem;
     }
     .comments-container .header-comment-id {
         width: 40px;

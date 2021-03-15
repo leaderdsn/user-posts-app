@@ -13,6 +13,10 @@
         font-weight: 400;
     }
     
+    .posts-container .btn-show-post {
+        white-space: nowrap;
+    }
+    
     @media (max-width: 1199px) {
         .posts-container {
             max-width: 1149px;
@@ -22,7 +26,6 @@
     @media (max-width: 991px) {
         .posts-container {
             max-width: 941px;
-            font-size: 0.9rem;
         }
         .posts-header {
             font-size: 1.2rem;
@@ -48,41 +51,12 @@
     @media (max-width: 575px) {
         .posts-container {
             max-width: 525px;
-            font-size: 0.7rem;
-        }
-        .posts-header {
-            font-size: 1rem;
-        }
-        .posts-container .header-posts-id {
-            width: 20px;
-        }
-        .posts-container .header-posts-choice {
-            background-color: none;
-            width: 20px;
-        }
-        .posts-container .header-posts-action {
-            width: 60px;
-        }
-        .posts-container .btn-show-post {
-            font-size: 0.7rem;
         }
     }
     
     @media (max-width: 480px) {
         .posts-container {
             max-width: 480px;
-            font-size: 0.5rem;
-        }
-        .posts-header {
-            font-size: 0.8rem;
-        }
-        .posts-container .choice-post-item input {
-            width: 10px;
-            height: 10px;
-        }
-        .posts-container .btn-show-post {
-            font-size: 0.5rem;
-            padding: 2px;
         }
     }
     

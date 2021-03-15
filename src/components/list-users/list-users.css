@@ -28,7 +28,6 @@
 @media (max-width: 991px) {
     .users-container {
         max-width: 941px;
-        font-size: 0.9rem;
     }
     .users-container .btn-show-posts {
         font-size: 0.9rem;
@@ -48,41 +47,12 @@
 @media (max-width: 575px) {
     .users-container {
         max-width: 525px;
-        font-size: 0.7rem;
-    }
-    .users-container .header-users-id {
-        width: 20px;
-    }
-    .users-container .header-users-choice {
-        background-color: none;
-        width: 20px;
-    }
-    .users-container .header-users-gender {
-        width: 20px;
-    }
-    .users-container .header-users-status {
-        width: 20px;
-    }
-    .users-container .header-users-action {
-        width: 60px;
-    }
-    .users-container .btn-show-posts {
-        font-size: 0.7rem;
     }
 }
 
 @media (max-width: 480px) {
     .users-container {
         max-width: 480px;
-        font-size: 0.5rem;
-    }
-    .users-container .choice-user-item input {
-        width: 10px;
-        height: 10px;
-    }
-    .users-container .btn-show-posts {
-        font-size: 0.5rem;
-        padding: 2px;
     }
 }
 
