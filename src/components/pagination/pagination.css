@@ -4,39 +4,3 @@
     align-items: center;
     justify-content: center;
 }
-
-@media (max-width: 991px) {
-    ul.pagination li.page-item span.page-link {
-        font-size: 0.9rem
-    }
-    ul.pagination li.page-item a.page-link {
-        font-size: 0.9rem
-    }
-}
-
-@media (max-width: 767px) {
-    ul.pagination li.page-item span.page-link {
-        font-size: 0.8rem
-    }
-    ul.pagination li.page-item a.page-link {
-        font-size: 0.8rem
-    }
-}
-
-@media (max-width: 575px) {
-    ul.pagination li.page-item span.page-link {
-        font-size: 0.7rem
-    }
-    ul.pagination li.page-item a.page-link {
-        font-size: 0.7rem
-    }
-}
-
-@media (max-width: 480px) {
-    ul.pagination li.page-item span.page-link {
-        font-size: 0.5rem
-    }
-    ul.pagination li.page-item a.page-link {
-        font-size: 0.5rem
-    }
-}
