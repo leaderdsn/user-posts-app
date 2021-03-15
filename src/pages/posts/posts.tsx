@@ -54,8 +54,8 @@ export const Posts: React.FC = observer(() => {
             </>
         ) : (
             <>
-                <Link className='btn btn-outline-primary my-2 btn-sm d-flex' to={`/`}>Back</Link>
-                <h4 className='w-100 text-center'>No posts</h4>
+                <Link className='btn-back-users btn btn-outline-primary my-2 btn-sm d-flex' to={`/`}>Back</Link>
+                <h4 className='posts-header w-100 text-center'>No posts</h4>
             </>
         )     
     );
