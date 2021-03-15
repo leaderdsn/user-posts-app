@@ -35,7 +35,7 @@ export const Post: React.FC<ListPostProps> = observer(({postId, userId, isLoadin
             <div className='post-container'>
                 <h4 className='post-header'>Post name: <span className='post-header-name'>{title}</span></h4>
                 <Link className='btn-back-posts btn btn-outline-primary my-2 btn-sm' to={`/${userId}/posts/`}>Back</Link>
-                <Table className='post-list' hover size='sm' responsive>
+                <Table className='post-list' size='sm' hover responsive>
                     <thead>
                         <tr>
                             <th className='header-post-id text-center'>#</th>
