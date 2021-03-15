@@ -10,7 +10,7 @@ configure({
     computedRequiresReaction: true,
     reactionRequiresObservable: true,
     observableRequiresReaction: true,
-    disableErrorBoundaries: true,
+    disableErrorBoundaries: false,
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
